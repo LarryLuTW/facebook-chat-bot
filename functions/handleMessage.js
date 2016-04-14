@@ -1,17 +1,21 @@
+var chalk = require('chalk');
 var respond = require('./respond');
 var question = require('./question');
 var sys = require('./sys');
 
-var handleResponseError = function(err, msgInfo){
+var handleResponseError = function(err, res, msgInfo){
     if(err) console.log('response error');
+    else console.log(chalk.cyan('bot send message: ') + res);
 }
 
 var sendQuestion = function(api, message){
-    api.sendMessage('You can say', message.threadID, handleResponseError);
+    api.sendMessage('You can say', message.threadID, function(err, msgInfo){
+        handleResponseError(err, 'You can say', msgInfo);
+    });
     question.forEachQuestion(function(q, asyncCallback){
         api.sendMessage(q, message.threadID, function(err, msgInfo){
-            handleResponseError(err, msgInfo);
-            asyncCallback(null, null);
+            handleResponseError(err, q, msgInfo);
+            asyncCallback(err, null);
         });
     });
 }
@@ -25,7 +29,9 @@ var handleRegRes = function(req, api, message){
 
         if(res){
 
-            api.sendMessage(res, message.threadID, handleResponseError);
+            api.sendMessage(res, message.threadID, function(err, msgInfo){
+                handleResponseError(err, res, msgInfo);   
+            });
 
         } else {
             
@@ -40,6 +46,9 @@ module.exports = function(api, message, stop){
 
     var req = message.body ? message.body.toLowerCase() : "";
     if(req){
+
+        console.log(chalk.red('bot receive message: ') + message.body);
+
         if(req.charAt(0) === '/'){
 
             handleSysRes(req, api, message, stop);

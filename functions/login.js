@@ -1,7 +1,6 @@
 var login = require('facebook-chat-api');
 
 var larryID = 100001567752835;
-var annieID = 100000322326684;
 
 module.exports = function(userInfo, handleMessage){
     login({ email: userInfo.email, password: userInfo.password }, function(err, api){
