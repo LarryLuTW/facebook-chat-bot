@@ -15,9 +15,10 @@ var getResponse = function(req, callback){
 
         var hasReturned = false;
         for(var keyword in responseMap){
-            if(req.indexOf(keyword) != -1){
-                hasReturned = true;
+            var pattern = new RegExp('.*' + keyword + '.*');
+            if(pattern.test(req)){
                 callback(responseMap[keyword]);
+                hasReturned = true;
                 break;
             }
         }
