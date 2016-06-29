@@ -1,3 +1,5 @@
+This is a facebook chat bot you can easily customize the response. I will publish a new version recently. If you think this project is interesting, please give me a star. Thank you.
+
 # Quick Start Guide
 
 ## Requirement
