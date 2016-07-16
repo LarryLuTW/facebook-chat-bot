@@ -1,9 +1,5 @@
-{
-    "arr":[
-        "Hello", 
-
-        "Ya",
-
-        "I love apple"
-    ]
-}
+[
+    "Hello", 
+    "Ya",
+    "I love apple"
+]

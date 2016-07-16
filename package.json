@@ -4,11 +4,7 @@
   "description": "A facebook bot \"Pudding Dog\"",
   "main": "index.js",
   "dependencies": {
-    "async": "^2.0.0-rc.3",
-    "chalk": "^1.1.3",
-    "facebook-chat-api": "git+https://github.com/Larry850806/facebook-chat-api.git#d0c38b4",
-    "npmlog": "^2.0.3",
-    "request": "^2.71.0"
+    "facebook-chat-api": "^1.1.0"
   },
   "scripts": {
     "start": "node index.js"
