@@ -30,7 +30,7 @@ var userInfo = {
 - step2: start chat bot
 
 ```bash
-node index.js
+npm start
 ```
 
 ##  How to customize your bot
