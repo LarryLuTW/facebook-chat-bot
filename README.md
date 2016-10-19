@@ -30,7 +30,7 @@ var userInfo = {
 - step2: start chat bot
 
 ```bash
-node index.js
+npm start
 ```
 
 ##  How to customize your bot
@@ -54,15 +54,11 @@ The bot will find the "keyword" and make response.
 ### customize the default message
 modify the arr in `database/question.json`.<br>
 ```json
-{
-    "arr":[
-        "Hello", 
-
-        "Ya",
-
-        "I love apple"
-    ]
-}
+[
+    "Hello",
+    "Ya",
+    "I love apple"
+]
 ```
 <img src="http://imgur.com/JfLi0Lj.png">
 
